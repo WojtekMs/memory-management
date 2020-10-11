@@ -9,7 +9,7 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v2
       with:
-        ref: shared_ptr
+        ref: weak_ptr
     - name: mkdir build
       working-directory: homework/shared_ptr/
       run: mkdir build
@@ -26,3 +26,4 @@ jobs:
       run: | 
         sudo apt install valgrind
         valgrind ./shared-ut
+        valgrind ./weak-ut
