@@ -1,9 +1,7 @@
-### `shared_ptr`
-
-Implementation of my own `shared_ptr` (simplified). 
-
-On this branch shared_ptr is a standalone class and there is no support for weak_ptr implemented. To see full implementation of of my shared_ptr cooperating with weak_ptr go here:
+### On this branch shared_ptr is a standalone class and there is no support for weak_ptr implemented. To see full implementation of of my shared_ptr cooperating with weak_ptr go here:
 [complete implementation](https://github.com/WojtekMs/memory-management/tree/make_shared/homework/shared_ptr)
+
+
 
 `shared_ptr` is a RAII class:
 
@@ -23,4 +21,3 @@ On this branch shared_ptr is a standalone class and there is no support for weak
 * Member functions: `operator*()`, `operator->()`, `get()`, `reset()`, `use_count()`, `operator bool()`
 
 Additionally there is CI - UT + Valgrind
-
