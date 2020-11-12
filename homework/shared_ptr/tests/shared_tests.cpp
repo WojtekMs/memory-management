@@ -8,9 +8,6 @@ class SharedTest : public ::testing::Test
     int defaultValue{5};
     int anotherValue{10};
     cs::shared_ptr<int> defaultShared{new int{defaultValue}};
-    void release() {
-    throw std::exception();
-}
 };
 
 TEST_F(SharedTest, defaultSharedShouldBeNullptr)
@@ -168,4 +165,16 @@ TEST_F(SharedTest, sharedPtrCanBeCopiedFromEmptySharedPtr) {
     cs::shared_ptr<int> emptyShared2{};
     emptyShared1 = emptyShared2;
     EXPECT_EQ(emptyShared1.get(), nullptr);
+}
+
+TEST_F(SharedTest, DISABLED_badWeakPtrWhatMethodShouldReturnBadWeakPtr) {
+    cs::weak_ptr<int> weak{};
+    std::string errorMessage{};
+    try {
+        cs::shared_ptr<int> shared{weak};
+    }
+    catch (const cs::bad_weak_ptr& e) {
+        errorMessage = e.what();
+    }
+    EXPECT_EQ(errorMessage, "cs::bad_weak_ptr"); //errorMessage = "std::exception"
 }
